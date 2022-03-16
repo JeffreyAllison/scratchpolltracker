@@ -138,8 +138,6 @@ form {
 }
 
 #current-poll-container {
-
   display: flex;
   justify-content: center;
-
 }
