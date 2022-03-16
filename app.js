@@ -114,7 +114,7 @@ function displayAllPolls() {
   previousPolls.textContent = '';
 
   for (let poll of previousPolls) {
-    const pollcastEl = renderPoll(poll.optionA, poll.optionB, poll.optionAScore, poll.optionBScore);
+    const pollcastEl = renderPoll(poll.pollQuestion, poll.optionA, poll.optionB, poll.optionAScore, poll.optionBScore);
     pollcastEl.classList.add('previous');
     previousPollsEl.append(pollcastEl);
   }

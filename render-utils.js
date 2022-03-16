@@ -1,10 +1,10 @@
-export function renderPoll(pollQuestion, optionA, optionB, optionAScore, optionBScore) {
+export function renderPoll(previousPolls, optionA, optionB, optionAScore, optionBScore) {
   const div = document.createElement('div');
   const optionADiv = renderOption(optionA, optionAScore);
   const optionBDiv = renderOption(optionB, optionBScore);
-  const pollQuestionDiv = renderOption(pollQuestion);
+  const previousPollsDiv = renderOption(previousPolls);
 
-  div.append(pollQuestionDiv, optionADiv, optionBDiv);
+  div.append(previousPollsDiv, optionADiv, optionBDiv);
 
   div.classList.add('poll');
 
