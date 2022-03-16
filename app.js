@@ -1,20 +1,21 @@
-/* eslint-disable no-undef */
-/* eslint-disable no-unused-vars */
+import { renderPoll } from './render-utils.js';
 
 // import functions and grab DOM elements
 
 const currentPollEl = document.getElementById('current-poll-container');
+
 const previousPollsEl = document.getElementById('previous-poll-container');
 
 const beginPollingButton = document.getElementById('begin-polling-button');
-const pollQuestionAdd = document.getElementById('poll-question');
+const pollQuestionAdd = document.getElementById('poll-question-input');
 const optionAAddButton = document.getElementById('option-a-add');
 const optionBAddButton = document.getElementById('option-b-add');
 const optionAUndoButton = document.getElementById('option-a-undo');
 const optionBUndoButton = document.getElementById('option-b-undo');
 const closePollButton = document.getElementById('close-poll-button');
-const optionAInput = document.getElementById('poll-option-a');
-const optionBInput = document.getElementById('poll-option-b');
+const optionAInput = document.getElementById('poll-option-a-input');
+const optionBInput = document.getElementById('poll-option-b-input');
+const currentPollQuestion = document.getElementById('poll-question-label');
 
 
 // let state
@@ -31,45 +32,51 @@ let previousPolls = [];
 // update DOM to reflect the new state
 
 beginPollingButton.addEventListener('click', () => {
+
   pollQuestion = pollQuestionAdd.value;
+  currentPollQuestion.textContent = pollQuestion;
+  optionA = optionAInput.value;
+  optionB = optionBInput.value;
 
   pollQuestionAdd.value = '';
+  optionAInput.value = '';
+  optionBInput.value = '';
 
-  refreshCurrentPollEl();
+  displayCurrentPollEl();
 
 });
 
 optionAAddButton.addEventListener('click', () => {
   optionAScore++;
 
-  refreshCurrentPollEl();
+  displayCurrentPollEl();
 
 });
 
 optionBAddButton.addEventListener('click', () => {
   optionBScore++;
 
-  refreshCurrentPollEl();
+  displayCurrentPollEl();
 
 });
 
 optionAUndoButton.addEventListener('click', () => {
   optionAScore--;
 
-  refreshCurrentPollEl();
+  displayCurrentPollEl();
 
 });
 
 optionBUndoButton.addEventListener('click', () => {
   optionBScore--;
 
-  refreshCurrentPollEl();
+  displayCurrentPollEl();
 
 });
 
 closePollButton.addEventListener('click', () => {
 
-  const previousPolls = {
+  const previousPoll = {
     optionA: optionA,
     optionB: optionB,
     optionAScore: optionAScore,
@@ -85,6 +92,30 @@ closePollButton.addEventListener('click', () => {
   optionAScore = 0;
   optionBScore = 0;
 
-  refreshCurrentPollEl();
+  displayCurrentPollEl();
 
 });
+
+function displayCurrentPollEl() {
+  currentPollEl.textContent = '';
+
+  //optionAInput.textContent = optionA;
+  //optionBInput.textContent = optionB;
+
+  const pollEl = renderPoll(optionA, optionB, optionAScore, optionBScore);
+
+  pollEl.classList.add('current');
+
+  currentPollEl.append(pollEl);
+
+}
+
+function displayAllPolls() {
+  previousPolls.textContent = '';
+
+  for (let poll of previousPolls) {
+    const pollcastEl = renderPoll(poll.optionA, poll.optionB, poll.optionAScore, poll.optionBScore);
+    pollcastEl.classList.add('previous');
+    previousPollsEl.append(pollcastEl);
+  }
+}

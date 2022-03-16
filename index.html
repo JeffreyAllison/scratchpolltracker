@@ -22,22 +22,22 @@
     <section class="main-section">
       <div class="top">
         <div class="left">
-          <form>
+          <div>
             <label>
               Question
-              <input id="poll-question" />
+              <input id="poll-question-input" />
             </label>
             <label>
               Option A
-              <input id="poll-option-a" />
+              <input id="poll-option-a-input" />
             </label>
             <label>
               Option B
-              <input id="poll-option-b" />
+              <input id="poll-option-b-input" />
             </label>
 
             <button id="begin-polling-button">Begin Polling</button>
-          </form>
+          </div>
           <div>
             <div>
               <div>
@@ -52,19 +52,9 @@
             <button id="close-poll-button">Close the poll</button>
           </div>
         </div>
+        <p>Current Poll</p>
+        <p id="poll-question-label"></p>
         <div class="right" id="current-poll-container">
-          <p>Current Poll</p>
-          <p id="poll-question"></p>
-          <div class="options">
-            <div id="option-a">
-              <p id="option-a-title"></p>
-              <p id="option-a-votes"></p>
-            </div>
-            <div id="option-b">
-              <p id="option-b-title"></p>
-              <p id="option-b-votes"></p>
-            </div>
-          </div>
         </div>
       </div>
       <div class="bottom" id="previous-poll-container">
