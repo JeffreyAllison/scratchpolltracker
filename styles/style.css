@@ -130,3 +130,16 @@ form {
   align-items: center;
   padding: 20px;
 }
+
+#previous-poll-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+#current-poll-container {
+
+  display: flex;
+  justify-content: center;
+
+}
