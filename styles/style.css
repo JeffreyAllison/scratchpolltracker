@@ -37,6 +37,7 @@ main {
     justify-content: center;
     align-items: center;
     margin-bottom: calc(var(--footer-height));
+    background-color: orangered;
 }
 
 section {
@@ -51,6 +52,7 @@ section {
     margin-top: var(--gutter);
     margin-bottom: var(--gutter);
     border: solid 2px var(--color1);
+    background-color: lightcoral;
 }
 
 header {
@@ -88,4 +90,43 @@ footer {
     justify-content: flex-end;
     background-color: var(--color3);
     box-shadow: var(--shadow);
+}
+
+label {
+  display: block;
+}
+
+form {
+  border: solid 1px black;
+  margin: 10px;
+  padding: 10px;
+}
+
+.top {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+
+}
+
+.right {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.options {
+  display: flex;
+}
+
+.bottom {
+  width: 100;
+  border-top: solid 1px black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
 }
