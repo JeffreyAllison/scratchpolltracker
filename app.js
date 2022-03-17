@@ -88,10 +88,10 @@ closePollButton.addEventListener('click', () => {
 
   displayAllPolls();
 
-  optionA = '';
-  optionAScore = 0;
-  optionB = '';
-  optionBScore = 0;
+  //optionA = '';
+  //optionAScore = 0;
+  //optionB = '';
+  //optionBScore = 0;
 
   displayCurrentPollEl();
 
@@ -99,6 +99,7 @@ closePollButton.addEventListener('click', () => {
 
 function displayCurrentPollEl() {
   currentPollEl.textContent = '';
+
 
   //optionAInput.textContent = optionA;
   //optionBInput.textContent = optionB;
@@ -116,7 +117,7 @@ function displayAllPolls() {
 
   for (let poll of previousPolls) {
     const pollcastEl = renderPoll(poll.pollQuestion, poll.optionA, poll.optionAScore, poll.optionB, poll.optionBScore);
-    pollcastEl.classList.add('previous');
+    //pollcastEl.classList.add('previous');
     previousPollsEl.append(pollcastEl);
 
   }
