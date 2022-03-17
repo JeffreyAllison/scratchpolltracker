@@ -1,4 +1,4 @@
-export function renderPoll(previousPolls, optionA, optionB, optionAScore, optionBScore) {
+export function renderPoll(previousPolls, optionA, optionAScore, optionB, optionBScore) {
   const div = document.createElement('div');
   const optionADiv = renderOption(optionA, optionAScore);
   const optionBDiv = renderOption(optionB, optionBScore);
