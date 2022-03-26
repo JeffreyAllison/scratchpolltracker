@@ -113,11 +113,16 @@ function displayCurrentPollEl () {
 
 function displayAllPolls () {
   previousPolls.textContent = '';
+  currentPollQuestion.textContent = '';
+  optionAInput.textContent = '';
+  optionBInput.textContent = '';
+
+
 
   for (let poll of previousPolls) {
-    const pollcastEl = renderPoll(poll.previousPolls, poll.optionA, poll.optionAScore, poll.optionB, poll.optionBScore);
+    const pollEl = renderPoll(poll.previousPolls, poll.optionA, poll.optionAScore, poll.optionB, poll.optionBScore);
     //pollcastEl.classList.add('previous');
-    previousPollsEl.append(pollcastEl);
+    previousPollsEl.append(pollEl);
 
   }
 }
