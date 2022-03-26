@@ -4,9 +4,9 @@ export function renderPoll(previousPolls, optionA, optionAScore, optionB, option
   const optionBDiv = renderOption(optionB, optionBScore);
   const previousPollsDiv = renderOption(previousPolls);
 
-  div.append(previousPollsDiv, optionADiv, optionBDiv);
-
   div.classList.add('poll');
+
+  div.append(previousPollsDiv, optionADiv, optionBDiv);
 
   return div;
 }

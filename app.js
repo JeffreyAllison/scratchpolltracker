@@ -38,9 +38,9 @@ beginPollingButton.addEventListener('click', () => {
   optionA = optionAInput.value;
   optionB = optionBInput.value;
 
-  pollQuestionAdd.value = '';
-  optionAInput.value = '';
-  optionBInput.value = '';
+  //pollQuestionAdd.value = '';
+  //optionAInput.value = '';
+  //optionBInput.value = '';
 
   displayCurrentPollEl();
 
@@ -84,27 +84,26 @@ closePollButton.addEventListener('click', () => {
     optionBScore: optionBScore,
   };
 
-  previousPolls.push(previousPoll);
-
-  displayAllPolls();
-
+  //pollQuestion = '';
   //optionA = '';
   //optionAScore = 0;
   //optionB = '';
   //optionBScore = 0;
 
-  displayCurrentPollEl();
+  previousPolls.push(previousPoll);
+
+  displayAllPolls();
 
 });
 
-function displayCurrentPollEl() {
+function displayCurrentPollEl () {
   currentPollEl.textContent = '';
 
 
   //optionAInput.textContent = optionA;
   //optionBInput.textContent = optionB;
 
-  const pollEl = renderPoll(optionA, optionAScore, optionB, optionBScore);
+  const pollEl = renderPoll(previousPolls, optionA, optionAScore, optionB, optionBScore);
 
   pollEl.classList.add('current');
 
@@ -112,11 +111,11 @@ function displayCurrentPollEl() {
 
 }
 
-function displayAllPolls() {
+function displayAllPolls () {
   previousPolls.textContent = '';
 
   for (let poll of previousPolls) {
-    const pollcastEl = renderPoll(poll.pollQuestion, poll.optionA, poll.optionAScore, poll.optionB, poll.optionBScore);
+    const pollcastEl = renderPoll(poll.previousPolls, poll.optionA, poll.optionAScore, poll.optionB, poll.optionBScore);
     //pollcastEl.classList.add('previous');
     previousPollsEl.append(pollcastEl);
 
